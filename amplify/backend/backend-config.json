@@ -29,5 +29,11 @@
 				}
 			]
 		}
+	},
+	"storage": {
+		"icsFiles": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		}
 	}
 }
