@@ -1,6 +1,6 @@
 {
     "identityPoolName": "calendar52087dff_identitypool_52087dff",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "calend52087dff",
     "userPoolName": "calendar52087dff_userpool_52087dff",
     "autoVerifiedAttributes": [

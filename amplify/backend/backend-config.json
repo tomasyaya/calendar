@@ -13,5 +13,21 @@
 			"dependsOn": [],
 			"customAuth": false
 		}
+	},
+	"api": {
+		"calendarRestApi": {
+			"service": "API Gateway",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "createIcsFile",
+					"attributes": [
+						"Name",
+						"Arn"
+					]
+				}
+			]
+		}
 	}
 }

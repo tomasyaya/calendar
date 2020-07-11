@@ -1,0 +1,42 @@
+{
+    "paths": [
+        {
+            "name": "/icsfile",
+            "lambdaFunction": "createIcsFile",
+            "privacy": {
+                "protected": true,
+                "auth": [
+                    "/POST",
+                    "/GET"
+                ],
+                "unauth": [
+                    "/POST",
+                    "/GET"
+                ]
+            }
+        }
+    ],
+    "resourceName": "calendarRestApi",
+    "apiName": "calendarRestApi",
+    "functionArns": [
+        {
+            "lambdaFunction": "createIcsFile"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 1,
+        "authRoleName": "amplify-calendar-dev-160830-authRole",
+        "unAuthRoleName": "amplify-calendar-dev-160830-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "createIcsFile",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}
