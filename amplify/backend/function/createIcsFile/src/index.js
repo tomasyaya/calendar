@@ -1,4 +1,8 @@
-
+/* Amplify Params - DO NOT EDIT
+	ENV
+	REGION
+	STORAGE_ICSFILES_BUCKETNAME
+Amplify Params - DO NOT EDIT */
 
 exports.handler = async (event) => {
     // TODO implement

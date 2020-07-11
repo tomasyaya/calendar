@@ -1,39 +1,48 @@
 {
-	"function": {
-		"createIcsFile": {
-			"build": true,
-			"providerPlugin": "awscloudformation",
-			"service": "Lambda"
-		}
-	},
-	"auth": {
-		"calendar52087dff": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": [],
-			"customAuth": false
-		}
-	},
-	"api": {
-		"calendarRestApi": {
-			"service": "API Gateway",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": [
-				{
-					"category": "function",
-					"resourceName": "createIcsFile",
-					"attributes": [
-						"Name",
-						"Arn"
-					]
-				}
-			]
-		}
-	},
-	"storage": {
-		"icsFiles": {
-			"service": "S3",
-			"providerPlugin": "awscloudformation"
-		}
-	}
+    "function": {
+        "createIcsFile": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda",
+            "dependsOn": [
+                {
+                    "category": "storage",
+                    "resourceName": "icsFiles",
+                    "attributes": [
+                        "BucketName"
+                    ]
+                }
+            ]
+        }
+    },
+    "auth": {
+        "calendar52087dff": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [],
+            "customAuth": false
+        }
+    },
+    "api": {
+        "calendarRestApi": {
+            "service": "API Gateway",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "createIcsFile",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ]
+        }
+    },
+    "storage": {
+        "icsFiles": {
+            "service": "S3",
+            "providerPlugin": "awscloudformation"
+        }
+    }
 }

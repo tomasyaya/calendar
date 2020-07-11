@@ -9,6 +9,10 @@
 		},
 		"env": {
 			"Type": "String"
+		},
+		"storageicsFilesBucketName": {
+			"Type": "String",
+			"Default": "storageicsFilesBucketName"
 		}
 	},
 	"Conditions": {
@@ -55,6 +59,9 @@
 						},
 						"REGION": {
 							"Ref": "AWS::Region"
+						},
+						"STORAGE_ICSFILES_BUCKETNAME": {
+							"Ref": "storageicsFilesBucketName"
 						}
 					}
 				},
@@ -68,7 +75,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-calendar-dev-160830-deployment",
-					"S3Key": "amplify-builds/createIcsFile-374e7649493856724c47-build.zip"
+					"S3Key": "amplify-builds/createIcsFile-316b64706563754e327a-build.zip"
 				}
 			}
 		},
@@ -149,6 +156,47 @@
 									}
 								]
 							}
+						}
+					]
+				}
+			}
+		},
+		"AmplifyResourcesPolicy": {
+			"DependsOn": [
+				"LambdaExecutionRole"
+			],
+			"Type": "AWS::IAM::Policy",
+			"Properties": {
+				"PolicyName": "amplify-lambda-execution-policy",
+				"Roles": [
+					{
+						"Ref": "LambdaExecutionRole"
+					}
+				],
+				"PolicyDocument": {
+					"Version": "2012-10-17",
+					"Statement": [
+						{
+							"Effect": "Allow",
+							"Action": [
+								"s3:PutObject",
+								"s3:GetObject",
+								"s3:ListBucket"
+							],
+							"Resource": [
+								{
+									"Fn::Join": [
+										"",
+										[
+											"arn:aws:s3:::",
+											{
+												"Ref": "storageicsFilesBucketName"
+											},
+											"/*"
+										]
+									]
+								}
+							]
 						}
 					]
 				}
