@@ -5,5 +5,13 @@
 			"providerPlugin": "awscloudformation",
 			"service": "Lambda"
 		}
+	},
+	"auth": {
+		"calendar52087dff": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": [],
+			"customAuth": false
+		}
 	}
 }

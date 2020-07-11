@@ -10,6 +10,11 @@
             "StackName": "amplify-calendar-dev-160830",
             "StackId": "arn:aws:cloudformation:us-east-1:224389094907:stack/amplify-calendar-dev-160830/01bac8f0-c380-11ea-876c-0ef4281dfc4d",
             "AmplifyAppId": "d2av1piipb0eqb"
+        },
+        "categories": {
+            "auth": {
+                "calendar52087dff": {}
+            }
         }
     }
 }
